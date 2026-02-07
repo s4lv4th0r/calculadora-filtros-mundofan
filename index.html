@@ -402,7 +402,9 @@
       const outOfTable = aRes.outOfTable || bRes.outOfTable;
 
       const warnings = Array.from(new Set([aRes.warn, bRes.warn].filter(Boolean)));
-if (outOfTable) {
+      if (thicknessUI !== thicknessTable) warnings.unshift(`El espesor ${thicknessUI} mm se calcula con la tabla de ${thicknessTable} mm.`);
+
+      if (outOfTable) {
         return {
           price: null,
           roundedA: aRes.value,
